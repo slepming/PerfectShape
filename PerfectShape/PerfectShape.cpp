@@ -14,17 +14,22 @@ public:
 
     int drawTimeDown = 10000;
 
-    void DrawCircle(int dx, int dy)
+    void DrawCircle(int dx, int dy) // dx - x mouse position, dy y mouse position
     {
-        double radius = 300;
+        double radius = 300; 
         double angle = 0;
+        int degree = 360;
+        int stepDegree = 3; // steps
+
         bool firstMove = true;
 
-        for (int i = 0; i < 360; i+=120)
+
+
+        for (int i = 0; i < degree; i+=(degree / stepDegree))
         {
             angle = i * (pi / 180);
-            double new_x = 823 + radius * cos(angle);
-            double new_y = 446 + radius * sin(angle);
+            double new_x = 823 + radius * cos(angle); // +- center, you can edit this(823 -> dx)
+            double new_y = 446 + radius * sin(angle); // +- center, you can edit this(446 -> dy)
             if (firstMove)
             {
                 MouseMove(static_cast<int>(new_x), static_cast<int>(new_y));
